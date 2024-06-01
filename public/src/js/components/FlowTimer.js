@@ -1,6 +1,4 @@
 export class FlowTimer {
-    interruptTime = 0;
-
     constructor(params) {
         this.outputElement = params.output;
         this.startButton = params.startButton;
@@ -19,6 +17,7 @@ export class FlowTimer {
     start() {
         if (this.state === "default" || this.state === "stopped") {
             this.startTime = new Date().getTime();
+            this.interruptTime = 0;
             this.setState('running');
             this.updateTimer();
         }

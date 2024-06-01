@@ -1,6 +1,8 @@
 :root {
     --main-color: rgb(20, 20, 20);
     --main-text-color: rgb(240 240, 240);
+
+    --side-color: rgb(30, 30, 30);
 }
 
 body {
@@ -9,5 +11,5 @@ body {
 }
 
 #nav {
-    background-color: red;
+    background-color: var(--side-color);
 }

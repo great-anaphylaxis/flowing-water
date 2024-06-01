@@ -1,3 +1,5 @@
+import { nav } from "/src/js/script.js";
+
 export class Page {
     static pages = [];
     static currentPage = undefined;
@@ -26,5 +28,7 @@ export class Page {
                 page.style.display = 'none';
             }
         }
+
+        nav.update();
     }
 }
