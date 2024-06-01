@@ -1,34 +1,25 @@
-import { nav } from "/src/js/script.js";
+import { NavButton } from "/src/js/components/NavButton.js";
 
 export class Page {
-    static pages = [];
     static currentPage = undefined;
 
     constructor(params) {
         this.name = params.name;
         this.element = document.getElementById('page-' + this.name);
         this.style = this.element.style;
+        this.style.display = 'none';
         this.iconURL = "src/icons/" + params.iconFileName;
-
-        Page.pages.push(this)
+        this.navButton = new NavButton(this);
 
         this.show();
     }
 
     show() {
-        for (let i = 0; i < Page.pages.length; i++) {
-            let page = Page.pages[i];
-
-            if (page.name === this.name) {
-                page.style.display = 'block';
-                Page.currentPage = page;
-            }
-
-            else {
-                page.style.display = 'none';
-            }
+        if (Page.currentPage !== undefined) {
+            Page.currentPage.style.display = 'none';
         }
 
-        nav.update();
+        Page.currentPage = this;
+        Page.currentPage.style.display = 'block';
     }
 }

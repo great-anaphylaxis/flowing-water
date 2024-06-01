@@ -11,7 +11,7 @@ const timer = new FlowTimer({
     defaultButtonDisplay: 'inline-block',
 });
 
-export const nav = new Nav();
+const nav = new Nav();
 
 const homePage = new Page({name: "home", iconFileName: "icon-home.png"});
 const flowPage = new Page({name: "flow", iconFileName: "icon-flow.png"});

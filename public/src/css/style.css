@@ -28,6 +28,10 @@ body {
     flex-direction: column;
 }
 
+.navButton-highlight {
+    background-color: red;
+}
+
 section {
     width: 100%;
     padding: 1em;
