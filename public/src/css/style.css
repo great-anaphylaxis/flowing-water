@@ -1,0 +1,13 @@
+:root {
+    --main-color: rgb(20, 20, 20);
+    --main-text-color: rgb(240 240, 240);
+}
+
+body {
+    background-color: var(--main-color);
+    color: var(--main-text-color);
+}
+
+#nav {
+    background-color: red;
+}
