@@ -3,6 +3,7 @@
     --main-text-color: rgb(240 240, 240);
 
     --side-color: rgb(30, 30, 30);
+    --navButton-highlight: rgb(40, 40, 60)
 }
 
 body {
@@ -28,8 +29,16 @@ body {
     flex-direction: column;
 }
 
+.navButton {
+    width: 3.5em;
+    height: 3.5em;
+    margin: 0.25em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
 .navButton-highlight {
-    background-color: red;
+    background-color: var(--navButton-highlight);
 }
 
 section {

@@ -11,7 +11,7 @@ export class Page {
         this.iconURL = "src/icons/" + params.iconFileName;
         this.navButton = new NavButton(this);
 
-        this.show();
+        this.navButton.onClick();
     }
 
     show() {
