@@ -8,8 +8,27 @@
 body {
     background-color: var(--main-color);
     color: var(--main-text-color);
+
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
 }
 
 #nav {
+    height: 100%;
     background-color: var(--side-color);
+
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    width: 100%;
+    padding: 1em;
 }
