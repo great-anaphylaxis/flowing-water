@@ -15,7 +15,7 @@ export class NavButton {
     }
 
     highlightNavButton() {
-        let pastNavButton = this.pastPage.navButton.element;
+        const pastNavButton = this.pastPage.navButton.element;
 
         pastNavButton.classList.remove('navButton-highlight');
         this.element.classList.add('navButton-highlight');

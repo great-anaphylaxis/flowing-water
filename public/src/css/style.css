@@ -45,3 +45,30 @@ section {
     width: 100%;
     padding: 1em;
 }
+
+.toDoTaskCheckBox {
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+
+    background-color: white;
+    border: 3px solid black;
+}
+
+.toDoTaskCheckBox-checked {
+    background-color: blue;
+}
+
+.toDoTaskStar {
+    width: 2em;
+    height: 2em;
+
+    display: inline-block;
+
+    background-color: white;
+    border: 3px solid black;
+}
+
+.toDoTaskStar-starred {
+    background-color: yellow;
+}
