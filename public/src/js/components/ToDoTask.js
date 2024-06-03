@@ -17,6 +17,8 @@ export class ToDoTask {
         }
 
         this.toDoList = toDoList;
+        this.saveTasks = this.toDoList.saveTasks.bind(toDoList);
+        this.updateTasks = this.toDoList.updateTasks.bind(toDoList);
     }
 
     instantiate(listElement) {
@@ -34,10 +36,6 @@ export class ToDoTask {
         taskContainer.appendChild(taskStar);
 
         listElement.appendChild(taskContainer);
-    }
-
-    saveTasks() {
-        this.toDoList.saveTasks();
     }
 
 

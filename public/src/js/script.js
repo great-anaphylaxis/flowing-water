@@ -25,5 +25,5 @@ const listPage = new Page({name: "list", iconFileName: "icon-list.png"});
 const toDoList = new ToDoList("default")
 
 document.getElementById('l1').addEventListener('click', () => {
-    toDoList.addTask(new ToDoTask("task 1"))
+    toDoList.addTask(new ToDoTask(prompt("Task name"), toDoList))
 })

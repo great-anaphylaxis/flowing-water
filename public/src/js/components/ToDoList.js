@@ -50,8 +50,8 @@ export class ToDoList {
         AppData.saveData();
     }
 
-    addTask(tasks) {
-        this.tasks.unshift(tasks)
+    addTask(task) {
+        this.tasks.unshift(task)
         this.saveTasks();
 
         this.updateTasks();
@@ -59,18 +59,35 @@ export class ToDoList {
 
     createListUI() {
         const listsContainer = document.getElementById('listsContainer');
+        
         this.element = document.createElement('div');
 
+        const details = document.createElement('details')
+        const summary = document.createElement('summary');
+        summary.innerText = 'Checked tasks';
+        details.appendChild(summary);
+
+        this.checkedTasksElement = document.createElement('div');
+        details.appendChild(this.checkedTasksElement)
+
         listsContainer.appendChild(this.element);
+        listsContainer.appendChild(details);
     }
 
     updateTasks() {
         this.element.innerHTML = '';
+        this.checkedTasksElement.innerHTML = '';
 
         for (let i = 0; i < this.tasks.length; i++) {
             const task = this.tasks[i];
 
-            task.instantiate(this.element);
+            if (task.isChecked) {
+                task.instantiate(this.checkedTasksElement);
+            }
+
+            else {
+                task.instantiate(this.element)
+            }
         }
     }
 
