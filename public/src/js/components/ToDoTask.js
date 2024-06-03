@@ -23,10 +23,12 @@ export class ToDoTask {
 
     instantiate(listElement) {
         const taskContainer = document.createElement('div');
+        taskContainer.classList.add('toDoTaskContainer')
 
         const checkBox = new ToDoTaskCheckBox(this);
 
-        const taskName = document.createElement('label');
+        const taskName = document.createElement('div');
+        taskName.classList.add('toDoTaskContainer-taskName')
         taskName.innerText = this.name;
 
         const taskStar = new ToDoTaskStar(this);

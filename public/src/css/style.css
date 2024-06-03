@@ -3,7 +3,7 @@
     --main-text-color: rgb(240 240, 240);
 
     --side-color: rgb(30, 30, 30);
-    --navButton-highlight: rgb(40, 40, 60)
+    --highlight: rgb(40, 40, 60);
 }
 
 body {
@@ -38,12 +38,39 @@ body {
 }
 
 .navButton-highlight {
-    background-color: var(--navButton-highlight);
+    background-color: var(--highlight);
 }
 
 section {
     width: 100%;
     padding: 1em;
+}
+
+.toDoTaskContainer {
+    background-color: var(--highlight);
+    margin: 0.5em;
+    padding: 0.5em;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+}
+
+.toDoTaskContainer-taskName {
+    width: 15em;
+    margin: 0em 0.25em;
+    
+    user-select: none;
+    cursor: inherit;
+}
+
+.toDoTasksContainer > .toDoTaskContainer {
+
+    cursor: grab;
+}
+
+.toDoTasksContainer > .toDoTaskContainer:active {
+    cursor: grabbing;
 }
 
 .toDoTaskCheckBox {

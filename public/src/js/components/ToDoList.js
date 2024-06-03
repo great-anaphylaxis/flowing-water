@@ -60,9 +60,19 @@ export class ToDoList {
     createListUI() {
         const listsContainer = document.getElementById('listsContainer');
         
-        this.element = document.createElement('div');
+        // create a new list container
+        const list = document.createElement('div');
 
+        // for to do's, container inside list container
+        this.toDoTasksElement = document.createElement('div');
+        this.toDoTasksElement.classList.add('toDoTasksContainer');
+        list.appendChild(this.toDoTasksElement);
+
+        // for checked tasks, container inside list container
         const details = document.createElement('details')
+        list.appendChild(details);
+
+        // inside checked tasks
         const summary = document.createElement('summary');
         summary.innerText = 'Checked tasks';
         details.appendChild(summary);
@@ -70,12 +80,11 @@ export class ToDoList {
         this.checkedTasksElement = document.createElement('div');
         details.appendChild(this.checkedTasksElement)
 
-        listsContainer.appendChild(this.element);
-        listsContainer.appendChild(details);
+        listsContainer.appendChild(list)
     }
 
     updateTasks() {
-        this.element.innerHTML = '';
+        this.toDoTasksElement.innerHTML = '';
         this.checkedTasksElement.innerHTML = '';
 
         for (let i = 0; i < this.tasks.length; i++) {
@@ -86,7 +95,7 @@ export class ToDoList {
             }
 
             else {
-                task.instantiate(this.element)
+                task.instantiate(this.toDoTasksElement)
             }
         }
     }
