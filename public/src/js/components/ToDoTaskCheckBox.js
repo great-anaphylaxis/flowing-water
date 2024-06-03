@@ -1,32 +1,29 @@
 export class ToDoTaskCheckBox {
-    constructor(isChecked, setIsChecked) {
+    constructor(toDoTask) {
         this.element = document.createElement('div');
         this.element.classList.add('toDoTaskCheckBox');
-        this.setIsChecked = setIsChecked;
+        this.toDoTask = toDoTask;
+        this.saveTasks = this.toDoTask.saveTasks.bind(toDoTask);
 
         this.element.addEventListener('click', () => {
-            this.toggleChecked();
+            this.setIsChecked(!this.toDoTask.isChecked);
         });
-
-        if (isChecked) {
-            this.toggleChecked();
-        }
+            
+        this.setIsChecked(this.toDoTask.isChecked);
 
         return this.element;
     }
 
-    toggleChecked() {
-        const isChecked = this.element.classList.contains('toDoTaskCheckBox-checked');
-        this.setIsChecked(isChecked);
-        console.log(this)
+    setIsChecked(isChecked) {
+        this.toDoTask.isChecked = isChecked;
         this.saveTasks();
 
         if (isChecked) {
-            this.element.classList.remove('toDoTaskCheckBox-checked');
+            this.element.classList.add('toDoTaskCheckBox-checked');
         }
 
         else {
-            this.element.classList.add('toDoTaskCheckBox-checked')
+            this.element.classList.remove('toDoTaskCheckBox-checked')
         }
     }
 }

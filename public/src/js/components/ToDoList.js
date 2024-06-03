@@ -19,7 +19,7 @@ export class ToDoList {
 
         for (let i = 0; i < storedList.length; i++) {
             const storedTask = JSON.parse(storedList[i]);
-            const parsedTask = new ToDoTask(storedTask, this.saveTasks);
+            const parsedTask = new ToDoTask(storedTask, this);
 
             parsedList.push(parsedTask);
         }

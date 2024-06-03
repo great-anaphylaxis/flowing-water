@@ -5,7 +5,7 @@ export class ToDoTask {
     isStarred = false;
     isChecked = false;
 
-    constructor(params, saveTasksFunction) {
+    constructor(params, toDoList) {
         if (typeof params === 'string') {
             this.name = params;
         }
@@ -16,18 +16,18 @@ export class ToDoTask {
             this.isChecked = params.isChecked;
         }
 
-        this.saveTasksFunction = saveTasksFunction;
+        this.toDoList = toDoList;
     }
 
     instantiate(listElement) {
         const taskContainer = document.createElement('div');
 
-        const checkBox = new ToDoTaskCheckBox(this.isChecked, this.setIsChecked);
+        const checkBox = new ToDoTaskCheckBox(this);
 
         const taskName = document.createElement('label');
         taskName.innerText = this.name;
 
-        const taskStar = new ToDoTaskStar(this.isStarred, this.setIsStarred);
+        const taskStar = new ToDoTaskStar(this);
 
         taskContainer.appendChild(checkBox);
         taskContainer.appendChild(taskName);
@@ -36,15 +36,9 @@ export class ToDoTask {
         listElement.appendChild(taskContainer);
     }
 
-    setIsChecked(isChecked) {
-        this.isChecked = isChecked;
-    }
-
-    setIsStarred(isStarred) {
-        this.isStarred = isStarred;
-    }
-
     saveTasks() {
-        this.saveTasksFunction()
+        this.toDoList.saveTasks();
     }
+
+
 }

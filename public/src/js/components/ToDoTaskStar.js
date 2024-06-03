@@ -1,32 +1,29 @@
 export class ToDoTaskStar {
-    constructor(isStarred, setIsStarred) {
+    constructor(toDoTask) {
         this.element = document.createElement('div');
         this.element.classList.add('toDoTaskStar');
-        this.setIsStarred = setIsStarred;
+        this.toDoTask = toDoTask;
+        this.saveTasks = this.toDoTask.saveTasks.bind(toDoTask);
 
         this.element.addEventListener('click', () => {
-            this.toggleStarred();
+            this.setIsStarred(!this.toDoTask.isStarred);
         });
 
-        if (isStarred) {
-            this.toggleStarred();
-        }
+        this.setIsStarred(this.toDoTask.isStarred);
 
         return this.element;
     }
 
-
-    toggleStarred() {
-        const isStarred = this.element.classList.contains('toDoTaskStar-starred');
-        this.setIsStarred(isStarred);
+    setIsStarred(isStarred) {
+        this.toDoTask.isStarred = isStarred;
         this.saveTasks();
 
         if (isStarred) {
-            this.element.classList.remove('toDoTaskStar-starred');
+            this.element.classList.add('toDoTaskStar-starred');
         }
 
         else {
-            this.element.classList.add('toDoTaskStar-starred')
+            this.element.classList.remove('toDoTaskStar-starred')
         }
     }
 }
