@@ -197,9 +197,9 @@ export class ToDoList {
         list.appendChild(details);
 
         // inside checked tasks
-        const summary = document.createElement('summary');
-        summary.innerText = 'Checked tasks';
-        details.appendChild(summary);
+        this.checkedTasksSummary = document.createElement('summary');
+        this.checkedTasksSummary.innerText = 'Checked tasks (0)';
+        details.appendChild(this.checkedTasksSummary);
 
         this.checkedTasksElement = document.createElement('div');
         details.appendChild(this.checkedTasksElement)
@@ -222,6 +222,8 @@ export class ToDoList {
 
             task.instantiate(this.checkedTasksElement);
         }
+
+        this.checkedTasksSummary.innerText = `Checked tasks (${this.checkedTasks.length})`;
     }
 
     checkForListinData() {
