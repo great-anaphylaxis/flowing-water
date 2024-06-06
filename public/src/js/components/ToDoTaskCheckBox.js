@@ -3,6 +3,8 @@ export class ToDoTaskCheckBox {
         this.element = document.createElement('div');
         this.element.classList.add('toDoTaskCheckBox');
         this.toDoTask = toDoTask;
+
+        this.taskSetIsChecked = this.toDoTask.setIsChecked.bind(toDoTask);
         this.saveTasks = this.toDoTask.saveTasks.bind(toDoTask);
         this.updateTasks = this.toDoTask.updateTasks.bind(toDoTask);
 
@@ -16,13 +18,7 @@ export class ToDoTaskCheckBox {
     }
 
     setIsChecked(isChecked, tasksUpdate) {
-        this.toDoTask.isChecked = isChecked;
-
-        if (tasksUpdate) {
-            this.updateTasks();
-        }
-
-        this.saveTasks();
+        this.taskSetIsChecked(isChecked, tasksUpdate);
 
         if (isChecked) {
             this.element.classList.add('toDoTaskCheckBox-checked');

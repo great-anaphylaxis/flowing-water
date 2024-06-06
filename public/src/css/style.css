@@ -64,8 +64,11 @@ section {
     cursor: inherit;
 }
 
-.toDoTasksContainer > .toDoTaskContainer {
+.toDoTaskContainer-dragging {
+    position: absolute;
+}
 
+.toDoTasksContainer > .toDoTaskContainer {
     cursor: grab;
 }
 
@@ -80,6 +83,8 @@ section {
 
     background-color: white;
     border: 3px solid black;
+
+    cursor: pointer;
 }
 
 .toDoTaskCheckBox-checked {
@@ -94,8 +99,19 @@ section {
 
     background-color: white;
     border: 3px solid black;
+
+    cursor: pointer;
 }
 
 .toDoTaskStar-starred {
     background-color: yellow;
+}
+
+.toDoTaskRemove {
+    width: 2em;
+    height: 2em;
+    margin-left: 1em;
+    display: inline-block;
+
+    cursor: pointer;
 }

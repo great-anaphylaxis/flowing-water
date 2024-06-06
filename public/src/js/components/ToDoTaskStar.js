@@ -3,6 +3,8 @@ export class ToDoTaskStar {
         this.element = document.createElement('div');
         this.element.classList.add('toDoTaskStar');
         this.toDoTask = toDoTask;
+
+        this.taskSetIsStarred = this.toDoTask.setIsStarred.bind(toDoTask);
         this.saveTasks = this.toDoTask.saveTasks.bind(toDoTask);
         this.updateTasks = this.toDoTask.updateTasks.bind(toDoTask);
 
@@ -16,13 +18,7 @@ export class ToDoTaskStar {
     }
 
     setIsStarred(isStarred, tasksUpdate) {
-        this.toDoTask.isStarred = isStarred;
-
-        if (tasksUpdate) {
-            this.updateTasks();
-        }
-
-        this.saveTasks();
+        this.taskSetIsStarred(isStarred, tasksUpdate);
 
         if (isStarred) {
             this.element.classList.add('toDoTaskStar-starred');
