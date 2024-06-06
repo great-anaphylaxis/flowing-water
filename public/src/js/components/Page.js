@@ -2,6 +2,7 @@ import { NavButton } from "/src/js/components/NavButton.js";
 
 export class Page {
     static currentPage = undefined;
+    static tabIcon = document.getElementById('tab-icon');
 
     constructor(params) {
         this.name = params.name;
@@ -21,5 +22,7 @@ export class Page {
 
         Page.currentPage = this;
         Page.currentPage.style.display = 'block';
+
+        Page.tabIcon.href = this.iconURL;
     }
 }
