@@ -8,6 +8,7 @@ export class LifeCalendar {
         this.infoDateElement = document.getElementById('lifeCalendarInformation-date');
         this.infoPixelElement = document.getElementById('lifeCalendarInformation-pixel');
         this.year = new Date().getFullYear();
+        this.lifeDay = undefined;
 
         document.getElementById('lifeCalendarInformation-hide').addEventListener('click', () => this.hideInfoUI());
 
@@ -45,9 +46,9 @@ export class LifeCalendar {
     }
     
     createInfoUI() {
-        new LifePixel(this, "good");
-        new LifePixel(this, "neutral");
-        new LifePixel(this, "bad");
+        new LifePixel({lifeCalendar: this, name: "good", pixelColor: "green"});
+        new LifePixel({lifeCalendar: this, name: "neutral", pixelColor: "orange"});
+        new LifePixel({lifeCalendar: this, name: "bad", pixelColor: "red"});
     }
 
     showInfoUI() {
@@ -59,6 +60,7 @@ export class LifeCalendar {
     }
 
     fillInfoUI(lifeDay) {
+        this.lifeDay = lifeDay;
         this.infoDateElement.innerText = new Date(this.year, lifeDay.month, lifeDay.day).toLocaleDateString();
         this.showInfoUI();
     }
