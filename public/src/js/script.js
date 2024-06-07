@@ -4,6 +4,7 @@ import { AppData } from "/src/js/components/AppData.js";
 import { Nav } from "/src/js/components/Nav.js";
 import { ToDoList } from "/src/js/components/ToDoList.js";
 import { ToDoTask } from "/src/js/components/ToDoTask.js";
+import { LifeCalendar } from "/src/js/components/LifeCalendar.js";
 
 AppData.loadData();
 
@@ -21,8 +22,10 @@ const nav = new Nav();
 const homePage = new Page({name: "home", iconFileName: "icon-home.png"});
 const flowPage = new Page({name: "flow", iconFileName: "icon-flow.png"});
 const listPage = new Page({name: "list", iconFileName: "icon-list.png"});
+const lifePage = new Page({name: "life", iconFileName: "icon-life.png"});
 
 const toDoList = new ToDoList("default")
+const lifeCalendar = new LifeCalendar();
 
 document.getElementById('l1').addEventListener('click', () => {
     toDoList.addTask(new ToDoTask(prompt("Task name"), toDoList))

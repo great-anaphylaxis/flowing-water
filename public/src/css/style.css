@@ -115,3 +115,23 @@ section {
 
     cursor: pointer;
 }
+
+#lifeCalendar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lifeDay {
+    background-color: lightblue;
+    color: black;
+    width: 2em;
+    height: 2em;
+}
+
+.lifePixel {
+    display: inline-block
+}
+
+.lifePixel-date {
+    text-align: center;
+}
