@@ -128,6 +128,11 @@ section {
     height: 2em;
 }
 
+.lifeDay-today {
+    color: white;
+    font-weight: bolder;
+}
+
 .lifePixel {
     display: inline-block
 }

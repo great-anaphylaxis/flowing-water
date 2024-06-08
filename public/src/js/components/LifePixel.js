@@ -1,4 +1,6 @@
 export class LifePixel {
+    static pixels = {};
+
     constructor(params) {
         this.name = params.name;
         this.lifeCalendar = params.lifeCalendar;
@@ -18,10 +20,11 @@ export class LifePixel {
         container.appendChild(dateElement);
 
         this.lifeCalendar.infoPixelElement.appendChild(container);
+        LifePixel.pixels[this.name] = this;
     }
 
     click() {
-        const element = this.lifeCalendar.lifeDay.element;
-        element.style.backgroundColor = this.color;
+        const lifeDay = this.lifeCalendar.lifeDay;
+        lifeDay.changeState(this);
     }
 }
